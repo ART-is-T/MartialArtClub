@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: martialclub-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: martialclub-backend
+  template:
+    metadata:
+      labels:
+        app: martialclub-backend
+    spec:
+      containers:
+      - name: backend
+        image: martialclub-backend:1.1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: k8s
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+spec:
+  selector:
+    app: martialclub-backend
+  ports:
+  - port: 8080
+    targetPort: 8080

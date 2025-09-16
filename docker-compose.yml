@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: martialclub_postgres
+    environment:
+      POSTGRES_USER: martial
+      POSTGRES_PASSWORD: martial123
+      POSTGRES_DB: martialclub
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongo:
+    image: mongo:6
+    container_name: martialclub_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: martialclub_backend
+    depends_on:
+      - postgres
+      - mongo
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ./frontend
+    container_name: martialclub_frontend
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+volumes:
+  postgres_data:
+  mongo_data:
