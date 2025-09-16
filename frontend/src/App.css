@@ -1,0 +1,106 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.app-content {
+  flex: 1;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f6fa;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: #222;
+  color: #fff;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+nav a, nav button {
+  color: #fff;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav button:hover, nav a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 30px;
+}
+
+.session-list {
+  list-style: none;
+  padding: 0;
+}
+
+.session-item {
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 4px;
+  margin-left: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.book-btn:hover {
+  background: #1565c0;
+}
+
+form input, form select {
+  margin-bottom: 10px;
+  padding: 7px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+form button:hover {
+  background: #1565c0;
+}
+
+.info {
+  margin-top: 20px;
+  color: #888;
+  font-size: 15px;
+}
